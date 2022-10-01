@@ -48,33 +48,40 @@
             </div>
             <div class="modal-body">
               <div class="mb-3">
-                <label for="titleText" class="form-label">Task Title</label>
+                <!-- TITLE -->
+                <label for="textInput" class="form-label">Task Title</label>
                 <input
                   class="form-control"
                   type="text"
                   name=""
-                  id="titleText"
+                  id="textInput"
                 />
+                <div id="msg"></div>
               </div>
+              <!--  -->
+              <!-- Date  -->
               <div class="mb-3">
                 <label for="dateInput" class="form-label">Due Date</label>
                 <input
                   class="form-control"
                   type="date"
                   name="dateInput"
-                  id=""
+                  id="dateInput"
                 />
               </div>
+              <!--  -->
               <div class="mb-3">
-                <label for="desc" class="form-label">Description</label>
+                <!-- DESCRIPTION -->
+                <label for="descInput" class="form-label">Description</label>
                 <textarea
                   class="form-control"
-                  name=""
-                  id="desc"
+                  name="descInput"
+                  id="descInput"
                   cols="30"
                   rows="5"
                 ></textarea>
               </div>
+              <!--  -->
             </div>
 
             <div class="modal-footer">
@@ -91,7 +98,7 @@
         </div>
       </form>
 
-      <div class="tasks">
+      <div id="tasks">
         <div>
           <span class="fw-bold">Task 1</span>
           <span class="small text-secondary">2022-1-20</span>
