@@ -92,7 +92,9 @@
               >
                 Close
               </button>
-              <button type="submit" class="btn btn-primary">Add</button>
+              <button type="submit" id="add" class="btn btn-primary">
+                Add
+              </button>
             </div>
           </div>
         </div>
@@ -105,8 +107,13 @@
           <p>going to gym to watch netflix</p>
 
           <span class="options">
-            <i class="fas fa-edit"></i>
-            <i class="fas fa-trash"></i>
+            <i
+              data-bs-toggle="modal"
+              data-bs-target="#form"
+              class="fas fa-edit"
+              onClick="editTask(this)"
+            ></i>
+            <i onClick="deleteTask(this)" class="fas fa-trash"></i>
           </span>
         </div>
         <div>
@@ -115,8 +122,13 @@
           <p>going to gym to watch netflix</p>
 
           <span class="options">
-            <i class="fas fa-edit"></i>
-            <i class="fas fa-trash"></i>
+            <i
+              data-bs-toggle="modal"
+              data-bs-target="#form"
+              class="fas fa-edit"
+              onClick="editTask(this)"
+            ></i>
+            <i onClick="deleteTask(this)" class="fas fa-trash"></i>
           </span>
         </div>
       </div>
