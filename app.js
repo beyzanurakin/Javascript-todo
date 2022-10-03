@@ -28,29 +28,37 @@ let formValidation = () => {
     })()
   }
 }
-
-let data = {}
+//we can acces this value from everywhere because its scope is global
+let data = []
 
 let acceptData = () => {
-  data['text'] = textInput.value
-  data['date'] = dateInput.value
-  data['desc'] = descInput.value
+  data.push({
+    text: textInput.value,
+    date: dateInput.value,
+    description: descInput.value,
+  })
+  localStorage.setItem('data', JSON.stringify(data))
+  console.log(data)
   createTasks()
 }
 
 let createTasks = () => {
-  tasks.innerHTML += `
-  <div>
-          <span class="fw-bold">${data.text}</span>
-          <span class="small text-secondary">${data.date}</span>
-          <p>${data.desc}</p>
+  tasks.innerHTML = ''
+  data.map((task, i) => {
+    return (tasks.innerHTML += `
+  <div id=${i}>
+          <span class="fw-bold">${task.text}</span>
+          <span class="small text-secondary">${task.date}</span>
+          <p>${task.desc}</p>
 
           <span class="options">
             <i onClick="editTask(this)" data-bs-toggle="modal" data-bs-target="#form"  class="fas fa-edit"></i>
             <i onClick="deleteTask(this)" class="fas fa-trash"></i>
           </span>
         </div>
-        `
+        `)
+  })
+
   resetForm()
 }
 
@@ -71,3 +79,10 @@ let resetForm = () => {
   dateInput.value = ''
   descInput.value = ''
 }
+
+//IIFE  JavaScript function that runs as soon as it is defined.
+;(() => {
+  data = JSON.parse(localStorage.getItem('data'))
+  createTasks()
+  console.log(data)
+})()
